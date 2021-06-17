@@ -15,6 +15,7 @@
 
         </div>
         <div class="info">
+
           <a href="#" class="d-block">{{Auth::guard('admin')->user()->name}}</a>
         </div>
       </div>
