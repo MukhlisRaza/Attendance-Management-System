@@ -25,8 +25,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          @if(Session::get('page')=="dashboard")
+          <?php $active = "active"; ?>
+          @else
+          <?php $active = ""; ?>
+          @endif
           <li class="nav-item has-treeview menu-open">
-            <a href="{{url('admin/dashboard')}}" class="nav-link active">
+            <a href="{{url('admin/dashboard')}}" class="nav-link {{$active}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -34,9 +39,14 @@
             </a>
 
           </li>
+          @if(Session::get('page')=="profile")
+          <?php $active = "active"; ?>
+          @else
+          <?php $active = ""; ?>
+          @endif
           <li class="nav-header">PROFILE</li>
           <li class="nav-item">
-            <a href="{{url('admin/profile')}}" class="nav-link">
+            <a href="{{url('admin/profile')}}" class="nav-link {{$active}}">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Profile

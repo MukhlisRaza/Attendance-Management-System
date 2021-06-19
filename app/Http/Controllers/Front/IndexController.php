@@ -120,6 +120,7 @@ class IndexController extends Controller
     //
     public function dashboard()
     {
+        Session::put('page', 'dashboard');
         return view('front.front_dashboard');
     }
 
