@@ -129,12 +129,9 @@ class AdminController extends Controller
     // View Student
     public function viewStudents()
     {
-        if ($this->auth->check() && $this->auth->user()->last_activity < Carbon::now()->subMinutes(5)->format('Y-m-d H:i:s')) {
-            $user = $this->auth->user();
-            $user->last_activity = new \DateTime;
-            $user->timestamps = false;
-            $user->save();
-        }
-        return view('admin.view_students');
+
+        $totalUser = User::get();
+
+        return view('admin.view_students')->with(compact('totalUser'));
     }
 }

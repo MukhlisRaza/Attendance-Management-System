@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Leave Request</h1>
+                    <h1>Online Students</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{url('studentdashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Leave</li>
+                        <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active">Online Students</li>
                     </ol>
                 </div>
             </div>
@@ -37,9 +37,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">All Leave Request</h3>
-                        <a href="{{url('request-leave')}}"><button type="button" class="btn btn-warning btn-sm float-right"> <i class="far fa-plus-square"></i> Request </button></a>
+                        <h3 class="card-title">All Students</h3>
+
                     </div>
+
+
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="attendance" class="table table-bordered table-striped">
@@ -48,16 +50,26 @@
 
                                     <th>#Student ID</th>
                                     <th>Student Name</th>
+                                    <th>Student Email</th>
                                     <th>Status</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($totalUser as $online)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$online->id}}</td>
+                                    <td>{{$online->name}}</td>
+                                    <td>{{$online->email}}</td>
+                                    <td>
+                                        @if($online->isUserOnline())
+                                        <span class="badge badge-success">Online</span>
+                                        @else
+                                        <span class="badge badge-warning">Offline</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
