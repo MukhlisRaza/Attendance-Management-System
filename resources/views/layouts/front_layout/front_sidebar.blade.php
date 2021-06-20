@@ -53,35 +53,16 @@
             </a>
           </li>
           <li class="nav-header">ATTENDANCE</li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Attendance
-                <i class="fas fa-angle-left right"></i>
-              </p>
+          @if(Session::get('page')=="attendance")
+          <?php $active = "active"; ?>
+          @else
+          <?php $active = ""; ?>
+          @endif
+          <li class="nav-item">
+            <a href="{{url('attendance')}}" class="nav-link {{$active}}">
+              <i class="far fa-calendar-check"></i>&nbsp;&nbsp;&nbsp;
+              <p>Attendance</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Attendance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mark Attendance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Leave</p>
-                </a>
-              </li>
-
-            </ul>
           </li>
         </ul>
       </nav>

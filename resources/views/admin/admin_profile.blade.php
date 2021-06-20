@@ -1,7 +1,6 @@
 @extends('layouts.admin_layout.admin_layout')
 @section('content')
 
-<link rel="stylesheet" href="{{ url('css/admin_css/profile.css') }}">
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

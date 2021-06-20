@@ -45,5 +45,11 @@ Route::namespace('Front')->group(function () {
         Route::match(['get', 'post'], 'studentdashboard', [App\Http\Controllers\Front\IndexController::class, 'dashboard']);
         Route::get('profile', [App\Http\Controllers\Front\IndexController::class, 'profile']);
         Route::match(['get', 'post'], 'update-student-image', [App\Http\Controllers\Front\IndexController::class, 'updateStudentImage']);
+        Route::get('attendance', [App\Http\Controllers\Front\IndexController::class, 'attendance']);
+        Route::post('mark-attendance', [App\Http\Controllers\Front\IndexController::class, 'markAttendance']);
+        Route::get('view-attendance', [App\Http\Controllers\Front\IndexController::class, 'viewAttendance']);
+        Route::get('leave', [App\Http\Controllers\Front\IndexController::class, 'leave']);
+        Route::get('request-leave', [App\Http\Controllers\Front\IndexController::class, 'requestLeave']);
+        Route::post('request-form', [App\Http\Controllers\Front\IndexController::class, 'requestForm']);
     });
 });
