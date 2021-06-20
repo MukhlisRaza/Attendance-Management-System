@@ -9,9 +9,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <a href="{{ url('/admin/profile')}}">
-                        <h1>Profile</h1>
-                    </a>
+
+                    <h1>Profile</h1>
+
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

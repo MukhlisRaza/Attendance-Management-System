@@ -65,7 +65,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{url('admin/view-students')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Students</p>
                 </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Admin;
+use App\Models\User;
 use Session;
 use Image;
 
@@ -123,5 +124,17 @@ class AdminController extends Controller
             Session::flash('success_message', "Details is successfully updated");
             return redirect()->back();
         }
+    }
+
+    // View Student
+    public function viewStudents()
+    {
+        if ($this->auth->check() && $this->auth->user()->last_activity < Carbon::now()->subMinutes(5)->format('Y-m-d H:i:s')) {
+            $user = $this->auth->user();
+            $user->last_activity = new \DateTime;
+            $user->timestamps = false;
+            $user->save();
+        }
+        return view('admin.view_students');
     }
 }

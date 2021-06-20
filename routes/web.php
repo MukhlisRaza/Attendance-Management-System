@@ -26,6 +26,7 @@ Route::prefix('/admin')->namespace('Admin')->group(function () {
         Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard']);
         Route::get('profile', [App\Http\Controllers\Admin\AdminController::class, 'profile']);
         Route::match(['get', 'post'], 'update-admin-image', [App\Http\Controllers\Admin\AdminController::class, 'updateAdminImage']);
+        Route::get('view-students', [App\Http\Controllers\Admin\AdminController::class, 'viewStudents']);
     });
 });
 
