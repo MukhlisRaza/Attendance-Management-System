@@ -27,6 +27,17 @@ Route::prefix('/admin')->namespace('Admin')->group(function () {
         Route::get('profile', [App\Http\Controllers\Admin\AdminController::class, 'profile']);
         Route::match(['get', 'post'], 'update-admin-image', [App\Http\Controllers\Admin\AdminController::class, 'updateAdminImage']);
         Route::get('view-students', [App\Http\Controllers\Admin\AdminController::class, 'viewStudents']);
+        Route::get("student-detail/{id}", [App\Http\Controllers\Admin\AdminController::class, 'singleStudentDetails']);
+        Route::get("student-attendance", [App\Http\Controllers\Admin\AdminController::class, 'studentAttendance']);
+        Route::post('markAttendance', [App\Http\Controllers\Admin\AdminController::class, 'adminMarkAttendance']);
+        Route::get("student-leave", [App\Http\Controllers\Admin\AdminController::class, 'studentLeave']);
+        Route::post('markLeave', [App\Http\Controllers\Admin\AdminController::class, 'adminLeaves']);
+        Route::get("student_report", [App\Http\Controllers\Admin\AdminController::class, 'studentReport']);
+        Route::post('studentReport', [App\Http\Controllers\Admin\AdminController::class, 'singleStudentReport']);
+        Route::get("system_report", [App\Http\Controllers\Admin\AdminController::class, 'systemReport']);
+        Route::post('systemReport', [App\Http\Controllers\Admin\AdminController::class, 'allSystemReport']);
+        Route::get("student_grading", [App\Http\Controllers\Admin\AdminController::class, 'studentGrading']);
+        Route::post('studentGrade', [App\Http\Controllers\Admin\AdminController::class, 'studentGrade']);
     });
 });
 

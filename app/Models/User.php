@@ -42,6 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendance', 'student_id');
+    }
+    public function leaves()
+    {
+        return $this->hasMany('App\Models\Leave', 'student_id');
+    }
+
+
     public function isUserOnline()
     {
         return Cache::has('user-is-online-' . $this->id);

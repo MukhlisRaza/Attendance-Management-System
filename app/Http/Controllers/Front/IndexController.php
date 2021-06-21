@@ -129,7 +129,7 @@ class IndexController extends Controller
         // Today Attendance
         $dt = new DateTime();
         $dt->format('Y-m-d');
-        $todayAttendance = Attendance::whereDate('created_at', '=', $dt)->get()->count();
+        $todayAttendance = Attendance::whereDate('created_at', '=', $dt)->where('student_id', Auth::user()->id)->get()->count();
 
         // echo "<pre>";
         // print_r($todayAttendance);
@@ -237,6 +237,7 @@ class IndexController extends Controller
             // die;
             $dates = Attendance::whereDate('created_at', '=', $dt)
                 ->whereRaw('ABS(TIMESTAMPDIFF(MINUTE, created_at, ?)) <= 480', [$dt])
+                ->where('student_id', Auth::user()->id)
                 ->get()->count();
 
             /*

@@ -50,13 +50,17 @@
               <i class="nav-icon far fa-user"></i>
               <p>
                 Profile
-
               </p>
             </a>
           </li>
           <li class="nav-header">STUDENT RECORDS</li>
+          @if(Session::get('page')=="Attendance" || Session::get('page')=="viewStudent" || Session::get('page')=="studentAttendance" || Session::get('page')=="leave")
+          <?php $active = "active"; ?>
+          @else
+          <?php $active = ""; ?>
+          @endif
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{$active}}">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Attendance
@@ -64,20 +68,35 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if(Session::get('page')=="viewStudent")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="{{url('admin/view-students')}}" class="nav-link">
+                <a href="{{url('admin/view-students')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Students</p>
                 </a>
               </li>
+              @if(Session::get('page')=="studentAttendance")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{url('admin/student-attendance')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Students Attendance</p>
                 </a>
               </li>
+              @if(Session::get('page')=="leave")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="{{url('admin/student-leave')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Leave</p>
                 </a>
@@ -86,8 +105,13 @@
             </ul>
           </li>
           <li class="nav-header">ATTENDANCE MANAGEMENT</li>
+          @if(Session::get('page')=="Attendance" || Session::get('page')=="singleStudentReport" || Session::get('page')=="systemreport" || Session::get('page')=="grading")
+          <?php $active = "active"; ?>
+          @else
+          <?php $active = ""; ?>
+          @endif
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{$active}}">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Report
@@ -95,20 +119,35 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if(Session::get('page')=="singleStudentReport")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{url('admin/student_report')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Student Report</p>
                 </a>
               </li>
+              @if(Session::get('page')=="systemreport")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="{{url('admin/system_report')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>System Report</p>
                 </a>
               </li>
+              @if(Session::get('page')=="grading")
+              <?php $active = "active"; ?>
+              @else
+              <?php $active = ""; ?>
+              @endif
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="{{url('admin/student_grading')}}" class="nav-link {{$active}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grading</p>
                 </a>

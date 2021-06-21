@@ -52,7 +52,7 @@
                                     <div class="info-box">
                                         <form action="{{url('mark-attendance')}}" class="col-md-4 col-sm-12 col-12" method="post">
                                             @csrf
-                                            <button type="submit" name="present" id="present" value="Present" class="info-box-icon bg-info mark-attendance"><i class="far fa-calendar-check"></i></button>
+                                            <button type="submit" name="Present" id="Present" value="Present" class="info-box-icon bg-info mark-attendance"><i class="far fa-calendar-check"></i></button>
                                         </form>
                                         <div class="info-box-content">
                                             <span class="info-box-number">Mark Attendance</span>

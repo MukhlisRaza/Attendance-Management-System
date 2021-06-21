@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Online Students</li>
+                        <li class="breadcrumb-item active">Students</li>
                     </ol>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                                     <th>Student Name</th>
                                     <th>Student Email</th>
                                     <th>Status</th>
-
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,6 +68,7 @@
                                         <span class="badge badge-warning">Offline</span>
                                         @endif
                                     </td>
+                                    <td><a href="{{url('admin/student-detail/'.$online->id)}}"><i class="fas fa-eye"></i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

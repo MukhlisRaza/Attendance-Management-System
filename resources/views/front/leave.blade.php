@@ -65,6 +65,8 @@
                                     <td>
                                         @if($requests['status'] == 'Pending')
                                         <span class="badge badge-warning">{{$requests['status']}}</span>
+                                        @elseif($requests['status'] == 'Rejected')
+                                        <span class="badge badge-danger">{{$requests['status']}}</span>
                                         @else
                                         <span class="badge badge-success">{{$requests['status']}}</span>
                                         @endif
